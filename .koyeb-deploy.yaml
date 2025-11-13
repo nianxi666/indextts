@@ -1,0 +1,29 @@
+name: indextts-webui
+services:
+  - name: indextts-webui
+    git:
+      branch: koyeb-deploy-gpu-a4000-github-define-python
+      repository: $GITHUB_REPO_URL
+    builder: buildpack
+    buildpack:
+      buildpack: python
+      env:
+        PYTHON_VERSION: "3.10"
+    ports:
+      - port: 7860
+        protocol: http
+        public: true
+    env:
+      - key: GRADIO_SHARE
+        value: "false"
+      - key: HF_HOME
+        value: "/workspace/.huggingface"
+      - key: TRANSFORMERS_CACHE
+        value: "/workspace/.cache/transformers"
+    resources:
+      compute:
+        gpu: "a4000"
+        cpu: "4"
+        memory: "16Gi"
+    run:
+      command: python webui.py --host 0.0.0.0 --port 7860
