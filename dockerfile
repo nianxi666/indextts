@@ -20,4 +20,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 7860
 
 # 启动 Web UI
-CMD ["python", "webui.py", "--server_name", "0.0.0.0", "--server_port", "7860"]
+CMD ["python", "webui.py"]
