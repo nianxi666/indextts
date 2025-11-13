@@ -19,5 +19,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 暴露 Gradio 默认端口
 EXPOSE 7860
 
-# 启动 Web UI
-CMD ["python", "webui.py"]
+# 启动 Web UI（使用脚本支持的参数）
+CMD ["python", "webui.py", "--host", "0.0.0.0", "--port", "7860"]
