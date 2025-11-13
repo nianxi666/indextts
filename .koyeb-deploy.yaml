@@ -7,8 +7,8 @@ services:
     builder: buildpack
     buildpack:
       buildpack: python
-      python:
-        version: "3.10.13"
+      env:
+        PYTHON_VERSION: "3.10"
     ports:
       - port: 7860
         protocol: http
