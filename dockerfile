@@ -1,6 +1,6 @@
 FROM python:3.10-slim
 
-# 安装系统依赖（TTS 需要 ffmpeg、git 等；slim 版需额外工具）
+# 安装系统依赖（TTS 需要 ffmpeg、git 等）
 RUN apt-get update && apt-get install -y \
     git \
     ffmpeg \
@@ -10,14 +10,13 @@ RUN apt-get update && apt-get install -y \
 # 设置工作目录
 WORKDIR /app
 
-# 克隆 Hugging Face Space 仓库（无需本地克隆，直接在构建时拉取）
+# 克隆 Hugging Face Space 仓库（直接到当前目录）
 RUN git clone https://huggingface.co/spaces/IndexTeam/IndexTTS-2-Demo .
 
-# 安装 Python 依赖（从 requirements.txt）
-COPY requirements.txt .  # 如果你想覆盖，可选；否则用 RUN pip install -r requirements.txt
+# 安装 Python 依赖（使用克隆后的 requirements.txt）
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 暴露 Gradio 默认端口（7860）
+# 暴露 Gradio 默认端口
 EXPOSE 7860
 
 # 启动 Web UI
