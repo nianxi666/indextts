@@ -1,0 +1,34 @@
+{
+  "name": "indextts-koyeb-deployer",
+  "version": "1.0.0",
+  "description": "Deploy IndexTTS to Koyeb with GPU H100 support",
+  "main": "deploy-koyeb-gpu-h100.js",
+  "type": "commonjs",
+  "bin": {
+    "koyeb-deploy": "deploy-koyeb-gpu-h100.js"
+  },
+  "scripts": {
+    "deploy": "node deploy-koyeb-gpu-h100.js",
+    "deploy:status": "node deploy-koyeb-gpu-h100.js status",
+    "deploy:list": "node deploy-koyeb-gpu-h100.js list",
+    "deploy:help": "node deploy-koyeb-gpu-h100.js help"
+  },
+  "keywords": [
+    "koyeb",
+    "gpu",
+    "h100",
+    "indextts",
+    "deployment",
+    "tts",
+    "text-to-speech"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/indextts"
+  }
+}
