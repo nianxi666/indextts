@@ -1,0 +1,15 @@
+build:
+  buildpack: python
+  env:
+    PYTHON_VERSION: "3.10"
+
+run:
+  command: python webui.py --host 0.0.0.0 --port $PORT
+
+env:
+  - key: GRADIO_SHARE
+    value: "false"
+  - key: HF_HOME
+    value: "/workspace/.huggingface"
+  - key: TRANSFORMERS_CACHE
+    value: "/workspace/.cache/transformers"
